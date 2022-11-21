@@ -1,0 +1,39 @@
+/* khai báo biến CSS */
+:root {
+    --white-color: #fff;
+    --black-color: #000;
+    --text-color: #333;
+}
+
+/* Apply vào thuộc tính CSS lên tất cả phần tử HTML được nhúng file base */
+* {
+    box-sizing: inherit;
+}
+
+/* font-size: 100% - 16px / 62.5%-10px
+    sans-serif: chủng- có nghĩa là trong khi font roboto bị lỗi, hoặc chưa tải được thì nó sẽ dùng sans-serì để hiển thị(font ko chân)
+*/
+html {
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+/* Responsive */
+
+.grid {
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* trường hợp k muốn sử dụng width: 1200px */
+.gird__full-width {
+    width: 100%;
+}
+
+.grid__row {
+    display: flex;
+    flex-wrap: wrap;
+}
