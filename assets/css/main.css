@@ -1,0 +1,137 @@
+.header {
+    height: 120px;
+    background-image: linear-gradient(0,#fe6433,#f53e2d);
+}
+
+.header__navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* mặc định thẻ ul có padding: 40px hai bên=> padding-left */
+.header__navbar-list {
+    list-style: none;
+    padding-left: 0;
+    /* margin-top: 4px; */
+}
+
+.header__navbar-item {
+    padding: 0 10px;
+    position: relative;
+    min-height: 17px;
+}
+
+/* hiện QR
+những thuộc tính CSS ở trong sẽ được apply vào header__qr */
+.header__navbar-item--has-qr:hover .header__qr{
+    display: block;
+}
+
+.header__navbar-item,
+.header__navbar-item-link {
+    display: inline-block;
+    font-size: 1.3rem;
+    color: var(--white-color);
+    text-decoration: none;
+    font-weight: 300;
+    /* position: relative; */
+}
+
+/*  căn giữa chữ và icon */
+.header__navbar-item,
+.header__navbar-item-link,
+.header_navbar-icon-link {
+    display: inline-flex;
+    align-items: center;
+}
+
+/* hover cho chữ mờ dần */
+.header__navbar-item:hover,
+.header_navbar-icon-link:hover,
+.header__navbar-item-link:hover {
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+}
+
+.header__navbar-item--bold {
+    font-weight: 400;
+}
+
+/* Thêm gạch thẳng vào sau mỗi item */
+.header__navbar-item--separate::after {
+    content: "";
+    height: 13px;
+    /* width: 0; */
+    border-left: 1px solid #fa8e82;
+    /* border-right: 1px solid #333; */
+    position: absolute;
+    left: -1px;
+    top: calc(50% - 6px);
+}
+
+.header_navbar-icon-link {
+    color: var(--white-color);
+    text-decoration: none;
+}
+
+.header__navbar-icon {
+    font-size: 1.6rem;
+    margin: 0 5px;
+}
+
+.header__navbar-item-title--no-pointer {
+    cursor: text;
+    color: var(--white-color);
+}
+
+/* header QR code */
+
+/* display: none - ẩn QR code */
+.header__qr {
+    width: 186px;
+    background-color: var(--white-color);
+    position: absolute;
+    left: 0;
+    top: 150%;
+    padding: 4px;
+    border-radius: 2px;
+    display: none;
+    animation: fadeIn ease-in 0.3s;
+}
+
+/* chuuy */
+
+/* khi đẩy top ra xa thì sẽ không di chuột được vào QR code
+nên ta phải tạo 1 lớp Pseudo Class */
+.header__qr::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    /* background-color: green; */
+    left: 0;
+    top: -12px;
+}
+
+.header__qr-img {
+    width: 100%;
+}
+
+/* nên cho img vào thẻ a 
+nếu để img k thì nó sẽ thành flex-item=> méo ảnh */
+.header__qr-apps {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__qr-link:nth-child(1) {
+    margin-left: 12px;
+}
+
+.header__qr-link:nth-child(2) {
+    margin-right: 12px;
+}
+.header__qr-download-img {
+    height: 16px;
+}
