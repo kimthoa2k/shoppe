@@ -99,8 +99,6 @@ những thuộc tính CSS ở trong sẽ được apply vào header__qr */
     animation: fadeIn ease-in 0.3s;
 }
 
-/* chuuy */
-
 /* khi đẩy top ra xa thì sẽ không di chuột được vào QR code
 nên ta phải tạo 1 lớp Pseudo Class */
 .header__qr::before {
@@ -150,8 +148,17 @@ nếu để img k thì nó sẽ thành flex-item=> méo ảnh */
     cursor: default;
     transform-origin: calc(100% - 20px) top;
     animation: headerNotifiGroth ease-in 0.2s;
+    /* -webkit-animation: headerNotifiGroth ease-in 0.2s;
+    -ms-zoom-animation: headerNotifiGroth ease-in 0.2s;
+    -o-animation: headerNotifiGroth ease-in 0.2s;
+    -moz-animation: headerNotifiGroth ease-in 0.2s; */
+    will-change: opacity, transform;
     display: none;
 }
+
+/* will-change: tối ưu hóa chuyển động cho animation 
+    search: when to use webkit prefix css*/
+
 /*transform-origin: ;  để hiện ra từ góc trên/phải/trái/dưới
 Hiện mờ mờ dần lên : opacity*/
 
@@ -268,6 +275,8 @@ Hiện mờ mờ dần lên : opacity*/
     width: 100%;
     padding: 8px 0; */
 }
+
+/* Modal */
 
 
 
