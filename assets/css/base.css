@@ -5,6 +5,10 @@
     --black-color: #000;
     --text-color: #333;
     --border-color: #dbdbdb;
+
+    --header-height: 120px;
+    --navbar-height: 39px;
+    --header-with-search-height: calc(var(--header-height) - var(--navbar-height));
 }
 
 /* Apply vào thuộc tính CSS lên tất cả phần tử HTML được nhúng file base */
@@ -50,6 +54,16 @@ html {
     }
 }
 
+/* Modal animation */
+@keyframes growth {
+    from {
+        transform: scale(var(--growth-from));
+    }
+    to {
+        transform: scale(var(--growth-to));
+    }
+}
+
 /* Modal */
 .modal {
     position: fixed;
@@ -58,6 +72,7 @@ html {
     bottom: 0;
     left: 0;
     display: flex;
+    animation: fadeIn linear 0.1s;
 }
 
 .modal__overlay {
@@ -73,9 +88,12 @@ hiện lên trước, vì vậy cần z-index */
 .modal__body {
     /* width: 300px;
     height: 300px; */
+    --growth-from: 0.7;
+    --growth-to: 1;
     margin: auto;
     position: relative;
     z-index: 1;
+    animation: growth linear 0.1s;
 }
 
 /* button style */
