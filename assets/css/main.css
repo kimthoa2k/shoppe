@@ -444,8 +444,15 @@ nó sẽ chọc ra ngoài, nên cần phải ẩn đi(socials là con của form
     margin-top: 2px;
 }
 
-.header__search-input {
+/* Thêm wrap để khi tăng or giảm kích thước của input nó sẽ k thay đổi*/
+.header__search-input-wrap {
     flex: 1;
+    height: 100%;
+    position: relative;
+}
+
+.header__search-input {
+    width: 100%;
     height: 100%;
     border: none;
     outline: none;
@@ -560,4 +567,52 @@ nó sẽ chọc ra ngoài, nên cần phải ẩn đi(socials là con của form
 
 .header__search-option-item--active i  {
     display: inline-block;
+}
+
+/* SEARCH HISTORY */
+
+/* dùng calc để khi thay đổi kích thước của ô input nó sẽ tự thích nghi */
+.header__search-history {
+    position: absolute;
+    top: calc(100% + 2px);
+    left: 0;
+    width: calc(100% - 16px);
+    background-color: var(--white-color);
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgb(189, 189, 189);
+}
+
+.header__search-history-heading {
+    margin: 6px 12px;
+    font-size: 1.4rem;
+    color: #999;
+    font-weight: 400;
+}
+
+.header__search-history-list {
+    padding-left: 0;
+    list-style: none;
+    margin: 6px 0 0;
+}
+
+.header__search-history-item {
+    height: 38px;
+    padding: 0 12px;
+}
+
+/* khi hover thì li sẽ chọc ra ngoài, nên phải border */
+.header__search-history-item:last-child {
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.header__search-history-item:hover {
+    background-color: #fafafa;
+}
+
+.header__search-history-item a {
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: var(--text-color);
+    line-height: 38px;
 }
