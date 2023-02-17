@@ -438,10 +438,54 @@ nó sẽ chọc ra ngoài, nên cần phải ẩn đi(socials là con của form
     text-align: center;
 }
 
+.header__cart-wrap {
+    position: relative;
+}
+
 .header__cart-icon {
     font-size: 2.4rem;
     color: var(--white-color);
     margin-top: 2px;
+}
+
+.header__cart:hover .header__cart-list {
+    display: block;
+}
+
+.header__cart-list {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 50px;
+    background-color: var(--white-color);
+    width: 400px;
+    border-radius: 2px;
+    box-shadow: 0 1px 3.125rem 0 rgb(0, 0, 0, 0.2);
+    display: none;
+}
+
+.header__cart-list::after {
+    content: "";
+    position: absolute;
+    right: 3px;
+    top: -26px;
+    border-width: 16px 20px;
+    border-style: solid;
+    border-color: transparent transparent var(--white-color) transparent;
+}
+
+.header__cart-list--no-cart {
+    padding: 36px 0;
+}
+
+.header__cart-no-cart-img {
+    width: 35%;
+}
+
+.header__cart-no-cart-msg {
+    display: block;
+    font-size: 1.4rem;
+    margin-top: 14px;
+    color: var(--text-color);
 }
 
 /* Thêm wrap để khi tăng or giảm kích thước của input nó sẽ k thay đổi*/
@@ -459,7 +503,7 @@ nó sẽ chọc ra ngoài, nên cần phải ẩn đi(socials là con của form
     font-size: 1.4rem;
     color: var(--text-color);
     padding: 0 16px;
-    border-radius: 3px;
+    border-radius: 2px;
 }
 
 .header__search-select {
@@ -487,7 +531,7 @@ nó sẽ chọc ra ngoài, nên cần phải ẩn đi(socials là con của form
     border: none;
     height: 34px;
     width: 60px;
-    border-radius: 3px;
+    border-radius: 2px;
     margin-right: 3px;
 }
 
@@ -513,7 +557,7 @@ nó sẽ chọc ra ngoài, nên cần phải ẩn đi(socials là con của form
     list-style: none;
     box-shadow: 0 1px 2px #e0e0e0;
     padding-left: 0;
-    border-radius: 3px;
+    border-radius: 2px;
     margin-top: 15px;
     display: none;
     animation: fadeIn ease 0.2s;
@@ -538,13 +582,13 @@ nó sẽ chọc ra ngoài, nên cần phải ẩn đi(socials là con của form
 
 /* border 2 item đầu cuối, để k bị chọc ra ngoài */
 .header__search-option-item:first-child {
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
 }
 
 .header__search-option-item:last-child {
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
 }
 
 .header__search-option-item:hover {
@@ -569,6 +613,11 @@ nó sẽ chọc ra ngoài, nên cần phải ẩn đi(socials là con của form
     display: inline-block;
 }
 
+/* Selectors css */
+.header__search-input:focus ~ .header__search-history{
+    display: block;
+}
+
 /* SEARCH HISTORY */
 
 /* dùng calc để khi thay đổi kích thước của ô input nó sẽ tự thích nghi */
@@ -578,8 +627,10 @@ nó sẽ chọc ra ngoài, nên cần phải ẩn đi(socials là con của form
     left: 0;
     width: calc(100% - 16px);
     background-color: var(--white-color);
-    border-radius: 3px;
+    border-radius: 2px;
     box-shadow: 0 1px 3px rgb(189, 189, 189);
+    display: none;
+    overflow: hidden;
 }
 
 .header__search-history-heading {
@@ -601,10 +652,10 @@ nó sẽ chọc ra ngoài, nên cần phải ẩn đi(socials là con của form
 }
 
 /* khi hover thì li sẽ chọc ra ngoài, nên phải border */
-.header__search-history-item:last-child {
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
-}
+/* .header__search-history-item:last-child {
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+} */
 
 .header__search-history-item:hover {
     background-color: #fafafa;
@@ -615,4 +666,5 @@ nó sẽ chọc ra ngoài, nên cần phải ẩn đi(socials là con của form
     font-size: 1.4rem;
     color: var(--text-color);
     line-height: 38px;
+    display: block;
 }
