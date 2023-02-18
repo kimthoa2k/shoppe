@@ -440,6 +440,9 @@ nó sẽ chọc ra ngoài, nên cần phải ẩn đi(socials là con của form
 
 .header__cart-wrap {
     position: relative;
+    display: inline-block;
+    padding: 0 12px;
+    cursor: pointer;
 }
 
 .header__cart-icon {
@@ -448,24 +451,27 @@ nó sẽ chọc ra ngoài, nên cần phải ẩn đi(socials là con của form
     margin-top: 2px;
 }
 
-.header__cart:hover .header__cart-list {
+.header__cart-wrap:hover .header__cart-list {
     display: block;
 }
 
 .header__cart-list {
     position: absolute;
     top: calc(100% + 10px);
-    right: 50px;
+    right: 1px;
     background-color: var(--white-color);
     width: 400px;
     border-radius: 2px;
     box-shadow: 0 1px 3.125rem 0 rgb(0, 0, 0, 0.2);
     display: none;
+    animation: fadeIn ease 0.2s;
+    cursor: default;
 }
 
 .header__cart-list::after {
     content: "";
     position: absolute;
+    cursor: pointer;
     right: 3px;
     top: -26px;
     border-width: 16px 20px;
@@ -477,15 +483,36 @@ nó sẽ chọc ra ngoài, nên cần phải ẩn đi(socials là con của form
     padding: 36px 0;
 }
 
+.header__cart-list--no-cart .header__cart-no-cart-img,
+.header__cart-list--no-cart .header__cart-no-cart-msg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .header__cart-no-cart-img {
     width: 35%;
+    display: none;
 }
 
 .header__cart-no-cart-msg {
-    display: block;
     font-size: 1.4rem;
     margin-top: 14px;
     color: var(--text-color);
+    display: none;
+}
+
+.header__cart-notice {
+    position: absolute;
+    top: -8px;
+    right: -4px;
+    padding: 1px 7px;
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+    border-radius: 10px;
+    border: 2px solid #EE4D2D;
+    color: var(--primary-color);
+    background-color: var(--white-color);
 }
 
 /* Thêm wrap để khi tăng or giảm kích thước của input nó sẽ k thay đổi*/
