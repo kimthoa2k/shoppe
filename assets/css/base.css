@@ -7,7 +7,7 @@
     --border-color: #dbdbdb;
 
     --header-height: 120px;
-    --navbar-height: 39px;
+    --navbar-height: 48px;
     --header-with-search-height: calc(var(--header-height) - var(--navbar-height));
 }
 
@@ -98,7 +98,7 @@ hiện lên trước, vì vậy cần z-index */
 
 /* button style */
 .btn {
-    min-width: 142px;
+    min-width: 124px;
     height: 36px;
     text-decoration: none;
     border: none;

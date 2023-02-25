@@ -12,6 +12,7 @@
 .header__navbar-list {
     list-style: none;
     padding-left: 0;
+    display: flex;
     /* margin-top: 4px; */
 }
 
@@ -19,6 +20,92 @@
     padding: 0 10px;
     position: relative;
     min-height: 17px;
+}
+
+/* USER LOGIN */
+.header__navbar-user {
+    display: flex;
+    justify-items: center;
+    position: relative;
+}
+
+.header__navbar-user-img {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.header__navbar-user-name {
+    margin-left: 4px;
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+.header__navbar-user:hover .header__navbar-user-menu {
+    display: block;
+}
+
+.header__navbar-user-menu {
+    position: absolute;
+    z-index: 1;
+    padding-left: 0;
+    top: calc(100% + 8px);
+    right: 0;
+    width: 160px;
+    background-color: var(--white-color);
+    border-radius: 2px;
+    list-style: none;
+    box-shadow: 0 1px 2px #e0e0e0;
+    display: none;
+}
+
+.header__navbar-user-menu::before {
+    content: "";
+    border-width: 21px 22px;
+    border-style: solid;
+    position: absolute;
+    right: 1px;
+    top: -32px;
+    border-color: transparent transparent var(--white-color) transparent;
+}
+
+/* Cau noi */
+.header__navbar-user-menu::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -8px;
+    right: 0;
+    width: 60%;
+    height: 8px;
+    /* background-color: #000; */
+}
+
+.header__navbar-user-item--separate {
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.header__navbar-user-item a{
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.4rem;
+    padding: 8px 16px;
+    display: block;
+}
+
+.header__navbar-user-item a:first-child {
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}
+
+.header__navbar-user-item a:last-child {
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+.header__navbar-user-item a:hover {
+    background-color: #fafafa;
 }
 
 /* hiện QR
@@ -41,7 +128,7 @@ những thuộc tính CSS ở trong sẽ được apply vào header__qr */
 .header__navbar-item,
 .header__navbar-item-link,
 .header_navbar-icon-link {
-    display: inline-flex;
+    display: flex;
     align-items: center;
 }
 
@@ -60,18 +147,22 @@ những thuộc tính CSS ở trong sẽ được apply vào header__qr */
 /* Thêm gạch thẳng vào sau mỗi item */
 .header__navbar-item--separate::after {
     content: "";
-    height: 13px;
+    height: 14px;
     /* width: 0; */
     border-left: 1px solid #fa8e82;
     /* border-right: 1px solid #333; */
     position: absolute;
     left: -1px;
-    top: calc(50% - 6px);
+    top: calc(50% - 7px);
 }
 
 .header_navbar-icon-link {
     color: var(--white-color);
     text-decoration: none;
+}
+
+.header_navbar-icon-link:nth-child(2) {
+    margin-left: 3px;
 }
 
 .header__navbar-icon {
@@ -89,6 +180,7 @@ những thuộc tính CSS ở trong sẽ được apply vào header__qr */
 /* display: none - ẩn QR code */
 .header__qr {
     width: 186px;
+    z-index: 1;
     background-color: var(--white-color);
     position: absolute;
     left: 0;
@@ -139,21 +231,23 @@ nếu để img k thì nó sẽ thành flex-item=> méo ảnh */
 /* bỏ hình bàn tay ở thông báo mới nhận cursor: default; */
 .header__notify {
     position: absolute;
-    top: 150%;
+    top: 130%;
     right: 9px;
     width: 404px;
+    z-index: 1;
     background-color: var(--white-color);
     border-radius: 2px;
-    border: 1px solid #D3D3D3;
+    border: 1px solid rgba(0, 0, 0, 0.1);
     cursor: default;
-    transform-origin: calc(100% - 20px) top;
+    transform-origin: calc(100% - 32px) top;
     animation: headerNotifiGroth ease-in 0.2s;
+    will-change: opacity, transform;
+    display: none;
     /* -webkit-animation: headerNotifiGroth ease-in 0.2s;
     -ms-zoom-animation: headerNotifiGroth ease-in 0.2s;
     -o-animation: headerNotifiGroth ease-in 0.2s;
     -moz-animation: headerNotifiGroth ease-in 0.2s; */
-    will-change: opacity, transform;
-    display: none;
+   
 }
 
 /* will-change: tối ưu hóa chuyển động cho animation 
@@ -419,6 +513,12 @@ nó sẽ chọc ra ngoài, nên cần phải ẩn đi(socials là con của form
     width: 200px;
 }
 
+/*  1 số trình duyệt cũ sẽ xh lỗi gạch chân, hoặc border  */
+.header__logo-link {
+    color: transparent;
+    text-decoration: none;
+}
+
 .header__logo-img {
     width: 150px;
     color: var(--white-color);
@@ -463,9 +563,9 @@ nó sẽ chọc ra ngoài, nên cần phải ẩn đi(socials là con của form
     width: 400px;
     border-radius: 2px;
     box-shadow: 0 1px 3.125rem 0 rgb(0, 0, 0, 0.2);
-    display: none;
     animation: fadeIn ease 0.2s;
     cursor: default;
+    display: none;
 }
 
 .header__cart-list::after {
@@ -479,6 +579,100 @@ nó sẽ chọc ra ngoài, nên cần phải ẩn đi(socials là con của form
     border-color: transparent transparent var(--white-color) transparent;
 }
 
+/* cart-list-item */
+.header__cart-heading {
+    text-align: left;
+    margin: 8px 0 8px 12px;
+    font-size: 1.4rem;
+    color: #999;
+    font-weight: 400;
+}
+
+.header__cart-list-item {
+    padding-left: 0;
+    list-style: none;
+}
+
+.header__cart-item {
+    display: flex;
+    align-items: center;
+}
+
+.header__cart-item:hover {
+    background-color: #F8F8F8;
+}
+.header__cart-img {
+    width: 42px;
+    height: 42px;
+    margin: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.header__cart-item-info {
+    width: 100%;
+    margin-right: 12px;
+}
+
+.header__cart-item-head {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.header__cart-item-name {
+    font-size: 1.4rem;
+    font-weight:410;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.header__cart-item-price {
+    font-size: 1.4rem;
+    font-weight:410;
+    color: var(--primary-color);
+}
+
+.header__cart-item-mutiply {
+    font-size: 0.9rem;
+    margin: 0 4px;
+    color: #757575;
+}
+
+.header__cart-item-qnt {
+    font-size: 1.2rem;
+    color: #757575;
+}
+
+.header__cart-item-body {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__cart-item-discription {
+    color: #757575;
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+.header__cart-item-remove {
+    color: var(--text-color);
+    font-size: 1.4rem;
+}
+
+.header__cart-item-remove:hover {
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.header__cart-view-cart {
+    float: right;
+    margin: 0 12px 12px 0;
+}
+
+.header__cart-view-cart:hover {
+    background-color: #F05D41;
+}
+/* no-cart */
 .header__cart-list--no-cart {
     padding: 36px 0;
 }
@@ -579,7 +773,7 @@ nó sẽ chọc ra ngoài, nên cần phải ẩn đi(socials là con của form
 .header__search-option {
     position: absolute;
     right: 0;
-    top: 100%;
+    top: calc(100% - 1px);
     width: 130px;
     list-style: none;
     box-shadow: 0 1px 2px #e0e0e0;
